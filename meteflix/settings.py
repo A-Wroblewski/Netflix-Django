@@ -31,7 +31,7 @@ else:
     SECRET_KEY = 'django-insecure-#n0qxx-bxy!0$r*)vm^zjhg$q8q=sez0-zclwfkqru*e96-mgn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'netflix-django-production.up.railway.app',       
