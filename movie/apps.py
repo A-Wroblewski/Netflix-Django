@@ -6,6 +6,7 @@ class MovieConfig(AppConfig):
     name = 'movie'
 
     # funcão que vai rodar quando o aplicativo for todo carregado
+    # cria um administrador no caso de usar um outro banco além do sqlite
     def ready(self):
         import os
         from .models import User
@@ -13,9 +14,7 @@ class MovieConfig(AppConfig):
         email = os.getenv('ADMIN_EMAIL')
         password = os.getenv('ADMIN_PASSWORD')
 
-        users = User.objects.filter(email=email)
-
-        if not users:
+        try:
             User.objects.create_user(
                 username='admin',
                 email=email,
@@ -24,3 +23,5 @@ class MovieConfig(AppConfig):
                 is_staff=True,
                 is_superuser=True,
             )
+        except:
+            pass
