@@ -34,7 +34,7 @@ else:
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://netflix-django-production.up.railway.app/',       
+    'netflix-django-production.up.railway.app',       
     'localhost',
     '127.0.0.1',
 ]
