@@ -1,5 +1,3 @@
-import os
-from .models import User
 from django.apps import AppConfig
 
 
@@ -9,6 +7,9 @@ class MovieConfig(AppConfig):
 
     # funcão que vai rodar quando o aplicativo for todo carregado
     def ready(self):
+        import os
+        from .models import User
+
         email = os.getenv('ADMIN_EMAIL')
         password = os.getenv('ADMIN_PASSWORD')
 
