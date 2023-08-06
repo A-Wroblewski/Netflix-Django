@@ -15,8 +15,11 @@ class MovieConfig(AppConfig):
         users = User.objects.filter(email=email)
 
         if not users:
-            User.objects.create_superuser(
+            User.objects.create_user(
                 username='admin',
                 email=email,
                 password=password,
+                is_active=True,
+                is_staff=True,
+                is_superuser=True,
             )
